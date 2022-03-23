@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
+var Kategoria = require('../models/kategoria');
 
 const Schema = mongoose.Schema;
 
 const hirdetesSchema = new Schema({
     _id: Number,
     kategoria: {
-        type: String,
-        required: true,
-        unique: true,
-        maxlength: 30
+        type: Number,
+        ref: Kategoria
     },
     cim: {
         type: String,
@@ -36,4 +35,4 @@ const hirdetesSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Kategoria', hirdetesSchema, 'kategoriak');
+module.exports = mongoose.model('Hirdetes', hirdetesSchema, 'hirdetesek');
